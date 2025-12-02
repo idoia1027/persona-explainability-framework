@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>🎮 Game Persona & Explainability Framework｜语义化游戏画像与可解释性框架</title>
+<style>
+  body{margin:0;font:15px/1.6 'Segoe UI',PingFang SC,sans-serif;color:#e5e7eb;background:linear-gradient(180deg,#0b1220,#111827);} 
+  .wrap{max-width:1100px;margin:60px auto;padding:0 20px;}
+  h1{text-align:center;font-size:28px;margin-bottom:8px;}
+  .subtitle{text-align:center;color:#9ca3af;margin-bottom:40px;}
+  .flowchart{display:flex;flex-direction:column;align-items:center;gap:18px;margin-bottom:60px;}
+  .flow-layer{display:flex;align-items:center;gap:10px;position:relative;}
+  .flow-box{background:rgba(30,41,59,.9);border:1px solid rgba(96,165,250,.3);border-radius:12px;padding:10px 16px;min-width:220px;text-align:center;box-shadow:0 0 12px -2px #60a5fa55;}
+  .flow-arrow{width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:12px solid #60a5fa;}
+  .phase{background:rgba(15,23,42,.9);border:1px solid rgba(148,163,184,.25);border-radius:16px;padding:20px;margin-bottom:24px;box-shadow:0 6px 18px -8px #60a5fa66;}
+  .phase h2{font-size:20px;color:#dbeafe;margin-bottom:10px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+  .phase h2:hover{color:#93c5fd;}
+  .details{max-height:0;overflow:hidden;transition:max-height .6s ease,padding .3s ease;}
+  .details.open{max-height:2400px;padding-top:8px;}
+  .phase p{margin:6px 0;color:#e5e7eb;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+  .chip{font-size:12px;padding:4px 10px;border:1px solid rgba(148,163,184,.3);border-radius:999px;color:#bfdbfe;background:rgba(96,165,250,.08);} 
+  .svg-demo{width:100%;border-radius:12px;margin:12px 0;box-shadow:0 0 12px -3px #60a5fa55;}
+  .img-caption{text-align:center;color:#9ca3af;font-size:13px;margin-top:-6px;margin-bottom:12px;}
+  .footer{text-align:center;color:#9ca3af;margin-top:40px;font-size:12px;}
+  .arrow{transition:transform .4s ease;} 
+  .open .arrow{transform:rotate(90deg);} 
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>🎮 Game Persona & Explainability Framework</h1>
+<p class="subtitle">语义化游戏理解 × 用户画像建模 × 可解释性推荐</p>
+
+<div class="flowchart">
+  <div class="flow-layer">
+    <div class="flow-box">Layer 1：游戏理解基石<br><small>标签体系重构</small></div>
+    <div class="flow-arrow"></div>
+    <div class="flow-box">Layer 2：用户画像建模<br><small>行为数据映射</small></div>
+    <div class="flow-arrow"></div>
+    <div class="flow-box">Layer 3：语义化抽象<br><small>人群标签体系</small></div>
+    <div class="flow-arrow"></div>
+    <div class="flow-box">Layer 4：业务应用层<br><small>推荐与报告</small></div>
+  </div>
+</div>
+
+<section>
+  <article class="phase">
+    <h2>🏗️ Phase 1：游戏理解体系重构 <span class="arrow">▶</span></h2>
+    <div class="details open">
+      <p><strong>设计理念：</strong>让算法真正“理解”游戏，不只是识别品类，而是拆解结构、机制、节奏、情感与体验。</p>
+      <p><strong>逻辑结构：</strong>从原始标签出发，重构为多层语义体系（例）：<br>
+      • 游戏内容理解-玩法机制 → 即时战斗 / 回合策略 / 模拟建造<br>
+      • 游戏内容理解-题材世界观 → 奇幻 / 现代 / 科幻 / 历史<br>
+      • 游戏内容理解-战斗模式 → 单人PVE / 非对称对抗 / 团队协作<br>
+      • 游戏内容理解-节奏强度 → 高频操作 / 轻度休闲 / 阶段推进<br>
+      • 游戏动机 → 成就驱动 / 探索驱动 / 社交驱动<br>
+      • 付费动机 → 养成进阶 / 视觉收集 / 竞争优势</p>
+      <p><strong>Showcase：</strong>
+      <em>Before：</em> 《第五人格》仅有“非对称竞技、恐怖悬疑”。<br>
+      <em>After：</em> 追逃对抗 × 情绪张力（高）× 心理博弈 + 团队配合；动机：成就 + 社交刺激。</p>
+      <p><strong>成果意义：</strong>标签语义化与颗粒度提升，为后续画像和推荐提供可解释的语义底座。</p>
+      <div class="chips"><span class="chip">语义层级化</span><span class="chip">六维体系</span><span class="chip">体验标签</span></div>
+    </div>
+  </article>
+
+  <article class="phase">
+    <h2>🧬 Phase 2：用户兴趣映射与画像建模 <span class="arrow">▶</span></h2>
+    <div class="details open">
+      <p><strong>设计理念：</strong>以标签体系为中介，将用户行为（游玩、付费、停留）结构化映射为兴趣标签权重。</p>
+      <p><strong>逻辑结构：</strong>用户行为 → 标签映射 → TagShare 权重归一化 → 动机聚合 → 画像生成。</p>
+      <p><strong>Showcase：</strong>系统会识别出某用户在《原神》《星穹铁道》中均有长期游玩，推导出其对“二次元幻想”“开放世界探索”“剧情沉浸”的高偏好权重，生成画像原型：<strong>剧情沉浸型玩家</strong>。</p>
+      <svg class="svg-demo" viewBox="0 0 900 420" role="img" aria-label="用户画像样例">
+  <defs>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+  <!-- card bg -->
+  <rect x="0" y="0" width="900" height="420" rx="16" fill="url(#card)" stroke="#60a5fa" stroke-opacity=".5"/>
+  <!-- left: basics -->
+  <g transform="translate(16,16)">
+    <rect width="250" height="388" rx="12" fill="#0f172a" stroke="#334155"/>
+    <text x="12" y="28" fill="#93c5fd" font-size="14">画像摘要</text>
+    <g fill="#e5e7eb" font-size="13">
+      <text x="12" y="60">年龄：45–49</text>
+      <text x="12" y="88">性别：男</text>
+      <text x="12" y="116">最近活跃：5天前</text>
+      <text x="12" y="144">累计消费：¥17,531</text>
+      <text x="12" y="172">历史玩过：15</text>
+      <text x="12" y="200">近30天在玩：6</text>
+      <text x="12" y="228">VIP 等级：9</text>
+    </g>
+  </g>
+  <!-- middle: persona scores -->
+  <g transform="translate(286,16)">
+    <rect width="300" height="388" rx="12" fill="#0f172a" stroke="#334155"/>
+    <text x="12" y="28" fill="#93c5fd" font-size="14">行为评分 Persona</text>
+    <g font-size="13">
+      <text x="12" y="70" fill="#bfdbfe">PVE 副本控</text>
+      <rect x="12" y="80" width="276" height="12" rx="6" fill="#1f2937"/>
+      <rect x="12" y="80" width="19" height="12" rx="6" fill="#60a5fa"/>
+      <text x="260" y="78" fill="#a5b4fc" font-size="12">0.07</text>
+
+      <text x="12" y="120" fill="#bfdbfe">PVP 竞技党</text>
+      <rect x="12" y="130" width="276" height="12" rx="6" fill="#1f2937"/>
+      <rect x="12" y="130" width="110" height="12" rx="6" fill="#60a5fa"/>
+      <text x="260" y="128" fill="#a5b4fc" font-size="12">0.40</text>
+
+      <text x="12" y="170" fill="#bfdbfe">成就</text>
+      <rect x="12" y="180" width="276" height="12" rx="6" fill="#1f2937"/>
+      <rect x="12" y="180" width="193" height="12" rx="6" fill="#60a5fa"/>
+      <text x="260" y="178" fill="#a5b4fc" font-size="12">0.70</text>
+
+      <text x="12" y="220" fill="#bfdbfe">收集</text>
+      <rect x="12" y="230" width="276" height="12" rx="6" fill="#1f2937"/>
+      <rect x="12" y="230" width="166" height="12" rx="6" fill="#60a5fa"/>
+      <text x="260" y="228" fill="#a5b4fc" font-size="12">0.60</text>
+
+      <text x="12" y="270" fill="#bfdbfe">集中度</text>
+      <rect x="12" y="280" width="276" height="12" rx="6" fill="#1f2937"/>
+      <rect x="12" y="280" width="221" height="12" rx="6" fill="#60a5fa"/>
+      <text x="260" y="278" fill="#a5b4fc" font-size="12">0.80</text>
+    </g>
+  </g>
+  <!-- right: spend & motive -->
+  <g transform="translate(606,16)">
+    <rect width="278" height="388" rx="12" fill="#0f172a" stroke="#334155"/>
+    <text x="12" y="28" fill="#93c5fd" font-size="14">付费理解</text>
+    <g font-size="12">
+      <text x="12" y="64" fill="#e5e7eb">外观类付费#皮肤/时装/挂件</text>
+      <rect x="12" y="72" width="254" height="10" rx="5" fill="#1f2937"/>
+      <rect x="12" y="72" width="79" height="10" rx="5" fill="#60a5fa"/>
+      <text x="210" y="68" fill="#a5b4fc">权重 31.0%</text>
+
+      <text x="12" y="112" fill="#e5e7eb">抽卡/转盘#氪金角色/神器</text>
+      <rect x="12" y="120" width="254" height="10" rx="5" fill="#1f2937"/>
+      <rect x="12" y="120" width="41" height="10" rx="5" fill="#60a5fa"/>
+      <text x="210" y="116" fill="#a5b4fc">权重 16.3%</text>
+
+      <text x="12" y="168" fill="#93c5fd" font-size="14">动机理解</text>
+      <text x="12" y="196" fill="#e5e7eb">稀缺与限定#FOMO/稀有感驱动</text>
+      <rect x="12" y="204" width="254" height="10" rx="5" fill="#1f2937"/>
+      <rect x="12" y="204" width="37" height="10" rx="5" fill="#60a5fa"/>
+      <text x="210" y="200" fill="#a5b4fc">权重 14.6%</text>
+
+      <text x="12" y="240" fill="#e5e7eb">参与动机#对抗竞技#技巧挑战</text>
+      <rect x="12" y="248" width="254" height="10" rx="5" fill="#1f2937"/>
+      <rect x="12" y="248" width="29" height="10" rx="5" fill="#60a5fa"/>
+      <text x="210" y="244" fill="#a5b4fc">权重 11.4%</text>
+    </g>
+  </g>
+</svg>
+<p class="img-caption">图示：用户画像样例（来源：用户理解点检 v2 系统）</p>
+    </div>
+  </article>
+
+  <article class="phase">
+    <h2>🏷️ Phase 3：语义化人群体系构建 <span class="arrow">▶</span></h2>
+    <div class="details open">
+      <p><strong>设计理念：</strong>让底层标签群“说人话”。通过语义归纳与自然语言表达，将复杂的标签组合转化为可识别的人设与社交标签。</p>
+      <p><strong>逻辑结构：</strong>基于画像底层标签，通过规则归纳与语义分析生成人群原型，如“手感党”“策略脑”“剧情党”等。</p>
+      <svg class="svg-demo" viewBox="0 0 900 420" role="img" aria-label="人群画像标签体系示意表">
+  <rect x="0" y="0" width="900" height="420" rx="16" fill="#0f172a" stroke="#60a5fa" stroke-opacity=".5"/>
+  <!-- header -->
+  <g fill="#93c5fd" font-size="13" font-weight="600">
+    <text x="20" y="30">画像原型名</text>
+    <text x="150" y="30">社交/网感别名</text>
+    <text x="300" y="30">关键词组合</text>
+    <text x="470" y="30">身份类型</text>
+    <text x="560" y="30">画像简介</text>
+    <text x="800" y="30">典型游戏</text>
+  </g>
+  <!-- rows -->
+  <g font-size="12" fill="#e5e7eb">
+    <rect x="16" y="40" width="868" height="44" rx="8" fill="#111827" stroke="#334155"/>
+    <text x="24" y="66">动作控</text>
+    <text x="150" y="66">手感党</text>
+    <text x="300" y="66">动作ARPG + 即时战斗 + 成就驱动</text>
+    <text x="470" y="66">主玩法特征</text>
+    <text x="560" y="66">注重手感与反馈节奏，追求操作带来的爽感</text>
+    <text x="800" y="66">《异界深渊》</text>
+
+    <rect x="16" y="92" width="868" height="44" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="24" y="118">策略脑</text>
+    <text x="150" y="118">烧脑指挥官</text>
+    <text x="300" y="118">策略型玩法 + 卡牌策略 + SLG</text>
+    <text x="470" y="118">主玩法特征</text>
+    <text x="560" y="118">乐于推演与布局，偏爱资源规划与策略博弈</text>
+    <text x="800" y="118">《小小地王》</text>
+
+    <rect x="16" y="144" width="868" height="44" rx="8" fill="#111827" stroke="#334155"/>
+    <text x="24" y="170">放置达人</text>
+    <text x="150" y="170">挂机党</text>
+    <text x="300" y="170">轻度玩法 + 放置成长 + 模拟经营</text>
+    <text x="470" y="170">主玩法特征</text>
+    <text x="560" y="170">享受数值阶段性递进节奏，喜欢轻松体验</text>
+    <text x="800" y="170">《梦幻挂机》</text>
+
+    <rect x="16" y="196" width="868" height="44" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="24" y="222">竞技行者</text>
+    <text x="150" y="222">对抗达人</text>
+    <text x="300" y="222">操作即战斗 + PVP竞技</text>
+    <text x="470" y="222">主玩法特征</text>
+    <text x="560" y="222">热衷实时对抗与胜负结果，追求操作与反应的上限</text>
+    <text x="800" y="222">《第五人格》</text>
+
+    <rect x="16" y="248" width="868" height="44" rx="8" fill="#111827" stroke="#334155"/>
+    <text x="24" y="274">经营规划师</text>
+    <text x="150" y="274">模拟控</text>
+    <text x="300" y="274">模拟经营 + 资源累积</text>
+    <text x="470" y="274">主玩法特征</text>
+    <text x="560" y="274">喜欢数智规划，从中获得掌控感与长期目标满足</text>
+    <text x="800" y="274">《城市商圈》</text>
+
+    <rect x="16" y="300" width="868" height="44" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="24" y="326">社交玩家</text>
+    <text x="150" y="326">开黑老铁</text>
+    <text x="300" y="326">社交驱动 + 团队竞技 + 合作闯关</text>
+    <text x="470" y="326">主玩法特征</text>
+    <text x="560" y="326">喜欢多人互动与团队协作，享受群体氛围</text>
+    <text x="800" y="326">《大话西游》</text>
+  </g>
+</svg>
+<p class="img-caption">图示：人群画像标签体系表样例（来源：画像原型表 v2）</p>
+    </div>
+  </article>
+  <article class="phase">
+    <h2>💡 Phase 4：可解释性推荐与洞察落地 <span class="arrow">▶</span></h2>
+    <div class="details open">
+      <p><strong>设计理念：</strong>通过语义化画像与游戏标签的结合，为推荐提供“理由”，让结果能被业务与用户读懂。</p>
+      <p><strong>逻辑结构：</strong>画像特征 × 游戏标签 → 匹配动机 → 推荐理由生成 → 报告可视化。</p>
+      <svg class="svg-demo" viewBox="0 0 900 220" role="img" aria-label="推荐卡片示意">
+        <rect x="0" y="0" width="900" height="220" rx="16" fill="#0f172a" stroke="#334155"/>
+        <g transform="translate(16,16)" font-size="14">
+          <rect x="0" y="0" width="520" height="188" rx="12" fill="#111827" stroke="#334155"/>
+          <text x="16" y="32" fill="#93c5fd">推荐理由</text>
+          <text x="16" y="62" fill="#e5e7eb">因为你偏好 <tspan fill="#bfdbfe">即时战斗节奏</tspan> 且重视 <tspan fill="#bfdbfe">操作手感与成就感</tspan>，</text>
+          <text x="16" y="90" fill="#e5e7eb">我们为你推荐《异界深渊》。其核心循环“战斗→成长→挑战”与</text>
+          <text x="16" y="118" fill="#e5e7eb">你的 <tspan fill="#bfdbfe">PVP 竞技党(0.40)</tspan>、<tspan fill="#bfdbfe">成就(0.70)</tspan> 特征高度吻合。</text>
+
+          <rect x="548" y="0" width="320" height="188" rx="12" fill="#111827" stroke="#334155"/>
+          <text x="564" y="32" fill="#93c5fd">语义报告（片段）</text>
+          <text x="564" y="62" fill="#e5e7eb">年度动机占比：成就 34%｜社交 22%｜探索 18%</text>
+          <text x="564" y="90" fill="#e5e7eb">偏好演化：PVP↑ ｜放置↓ ｜剧情↔</text>
+          <text x="564" y="118" fill="#e5e7eb">代表游戏：第五人格、异界深渊、星穹铁道</text>
+        </g>
+      </svg>
+      <div class="chips"><span class="chip">Explainable AI</span><span class="chip">语义匹配</span><span class="chip">可视化报告</span></div>
+    </div>
+  </article>
+</section>
+
+<p class="footer">© Game Persona & Explainability Framework<br>
+<em>当前阶段以标签体系为核心进行规则建模，未涉及真实 embedding 或语义聚类；后续阶段可逐步引入向量化与 LLM 驱动的语义抽象。</em></p>
+</div>
+
+<script>
+(function(){
+  const headers=document.querySelectorAll('.phase h2');
+  headers.forEach(h=>{
+    h.addEventListener('click',()=>{
+      const d=h.nextElementSibling; d.classList.toggle('open'); h.classList.toggle('open');
+    });
+  });
+})();
+</script>
+</body>
+</html>
